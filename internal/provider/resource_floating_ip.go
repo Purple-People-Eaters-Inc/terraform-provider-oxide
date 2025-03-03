@@ -94,6 +94,7 @@ func (r *floatingIpResource) Schema(ctx context.Context, _ resource.SchemaReques
 				Optional:    true,
 				Description: "IP Address of the floating IP.",
 				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
 					stringplanmodifier.RequiresReplaceIfConfigured(),
 				},
 			},
@@ -101,6 +102,7 @@ func (r *floatingIpResource) Schema(ctx context.Context, _ resource.SchemaReques
 				Optional:    true,
 				Description: "ID of the IP pool that will contain the floating IP.",
 				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
 					stringplanmodifier.RequiresReplaceIfConfigured(),
 				},
 			},
